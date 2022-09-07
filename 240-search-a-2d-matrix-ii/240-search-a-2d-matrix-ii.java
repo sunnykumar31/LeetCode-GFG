@@ -1,8 +1,8 @@
 class Solution {
     public static int binarysearch(int ar[],int target){
-        
         int i=0;
         int j=ar.length-1;
+        if(target<ar[i] || target>ar[j]) return 0;
         while(i<=j){
             int mid=mid=i+(j-i)/2;
             if(ar[mid]==target){
