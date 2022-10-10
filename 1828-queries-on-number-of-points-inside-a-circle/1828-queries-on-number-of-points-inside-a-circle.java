@@ -1,4 +1,5 @@
 class Solution {
+    //O(n2)
     public static int check_inside(int center_x,int center_y,int radius,int points_x,int points_y){
         int dif_x=center_x-points_x;
         int dif_y=center_y-points_y;
