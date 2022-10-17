@@ -16,13 +16,14 @@ class Solution {
                 
             }
             else{
-                f=1;
-                break;
+                // f=1;
+                // break;
+                return false;
             }
         }
-        if(f==0){
-            return true;
-        }
-        return false;
+        // if(f==0){
+        //     return true;
+        // }
+        return true;
     }
 }
