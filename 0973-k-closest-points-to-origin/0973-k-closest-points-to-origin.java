@@ -3,7 +3,8 @@ class Solution {
         int ar[]=new int[points.length];
         int close[][]=new int[k][2];
         for(int i=0;i<points.length;i++){
-            ar[i]=(int)Math.pow(points[i][0],2)+(int)Math.pow(points[i][1],2);
+            // ar[i]=(int)Math.pow(points[i][0],2)+(int)Math.pow(points[i][1],2);
+            ar[i]=points[i][0]*points[i][0] +points[i][1]*points[i][1];
         }
         // System.out.println(ar[0]+" "+ar[1]);
         for(int j=0;j<k;j++){
