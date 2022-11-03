@@ -1,7 +1,9 @@
 class Solution {
     public int countSubstrings(String s) {
+        //Without dyanamic Programming 
         int len=s.length();
         int count=0;
+        // example s=aaa  palindormic string from odd loop a,a,a,aaa
         for(int i=0;i<len;i++){
             int pre=i;
             int post=i;
@@ -16,6 +18,7 @@ class Solution {
                 count++;
             }
         }
+        // palindromic from even loop aa aa
         for(double i=0.5;i<len;i++){
             int pre=(int)(i-0.5);
             int post=(int)(i+0.5);
