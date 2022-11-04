@@ -15,21 +15,12 @@ class Solution {
                     r=mid;
                 }
             }
-            ar[i]=l;
+            ar[i]=l*1000+i;
         }
+        Arrays.sort(ar);
         int w_to_s[]=new int[k];
-        int index=-1;
-        for(int j=0;j<k;j++){
-            // System.out.println(ar[j]);
-            int min=Integer.MAX_VALUE;
-            for(int i=0;i<n;i++){
-                if(min>ar[i]){
-                    index=i;
-                    min=ar[i];
-                }
-            }
-            w_to_s[j]=index;
-            ar[index]=Integer.MAX_VALUE;
+        for(int i=0;i<k;i++){
+            w_to_s[i]=ar[i]%1000;
         }
         return w_to_s;
     }
