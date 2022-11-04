@@ -17,6 +17,9 @@ class Solution {
                 if(v2==vowel[k]){
                     f2=1;
                 }
+                if(f1==1 && f2==1){
+                    break;
+                }
                 k++;
             }
             if(f1==0){
