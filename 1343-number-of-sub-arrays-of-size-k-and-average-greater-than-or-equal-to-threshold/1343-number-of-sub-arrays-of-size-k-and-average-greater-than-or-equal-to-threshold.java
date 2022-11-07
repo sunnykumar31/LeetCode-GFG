@@ -9,16 +9,15 @@ class Solution {
         if(val>=threshold){
             count++;
         }
-        int usesum=currsum;
         int post=k;
         int pre=0;
         int len=nums.length;
         while(post<len){
-            usesum-=nums[pre];
-            usesum+=nums[post];
+            currsum-=nums[pre];
+            currsum+=nums[post];
             pre++;
             post++;
-            val=(double)usesum/k;
+            val=(double)currsum/k;
             if(val>=threshold){
                 count++;
             }
