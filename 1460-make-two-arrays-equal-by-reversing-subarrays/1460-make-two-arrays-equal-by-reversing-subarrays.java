@@ -12,15 +12,15 @@ class Solution {
                 max_t=target[i];
             }
         }
-        if(max_a!=max_t){
+        if(max_a!=max_t){ //if maximum value is not same than some value is not present so return false.
             return false;
         }
-        int nums[]=new int[max_a+1];
+        int nums[]=new int[max_a+1];//making frequency array of arr updating by increasing the element at that index
         for(int i=0;i<n;i++){
             nums[arr[i]]++;
         }
         for(int i=0;i<n;i++){
-            if(nums[target[i]]>0){
+            if(nums[target[i]]>0){ //if target array present than must be greater than zero 
                 nums[target[i]]--;
             }
             else{
