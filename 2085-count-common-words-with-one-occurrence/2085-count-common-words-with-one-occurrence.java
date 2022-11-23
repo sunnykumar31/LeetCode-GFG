@@ -1,5 +1,6 @@
 class Solution {
     public int countWords(String[] w1, String[] w2) {
+        //brute force
         int l1=w1.length;
         int l2=w2.length;
         ArrayList<String> list1 = new ArrayList();
