@@ -7,21 +7,23 @@ class Solution {
         }
         return set.size();
     }
-    // public static int reverse(int temp){
-    //     int newEle=0;
-    //     int m=1;
-    //     while(temp!=0){
-    //         int rem=temp%10;
-    //         temp/=10;
-    //         newEle=newEle*m+rem;
-    //         m*=10;
-    //     }
-    //     return newEle;
-    // }
-    public static int reverse(int num){
-        StringBuffer string = new StringBuffer(String.valueOf(num));
-        string.reverse();
-        num = Integer.parseInt(String.valueOf(string));
-        return num;
+    public static int reverse(int temp){
+        int newEle=0;
+        int m=10;
+        while(temp!=0){
+            int rem=temp%10;
+            temp/=10;
+            newEle=newEle*m+rem;
+        }
+        return newEle;
     }
+    
+    
+    
+    // public static int reverse(int num){
+    //     StringBuffer string = new StringBuffer(String.valueOf(num));
+    //     string.reverse();
+    //     num = Integer.parseInt(String.valueOf(string));
+    //     return num;
+    // }
 }
