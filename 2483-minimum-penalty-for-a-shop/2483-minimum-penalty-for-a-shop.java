@@ -61,7 +61,6 @@ class Solution {
 			if(min>sum) {
 				min=sum;
 				res=i;
-             //   System.out.println(no[customers.length()-1]);
 			}
             
 		}
