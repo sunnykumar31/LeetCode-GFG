@@ -53,10 +53,10 @@ class Solution {
 			arN[i+1]=count;
 		}
 
-        int ans[]=new int[arY.length];
+        int ans[]=new int[l+1];
 		int min=Integer.MAX_VALUE;
 		int res=0;
-		for(int i=0;i<arY.length;i++) {
+		for(int i=0;i<l+1;i++) {
 			int sum=arY[i]+arN[i];
 			if(min>sum) {
 				min=sum;
