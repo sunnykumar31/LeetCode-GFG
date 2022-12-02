@@ -10,7 +10,7 @@ class Solution {
         }
         int count=0;
         for(int i=0;i<26;i++){
-            int diff=Math.abs(freq1[i]-freq2[i]);
+            int diff=Math.abs(freq1[i]-freq2[i]); // dono k charater ko bina change kiye anagram bnanan hai  
             if(diff!=0){
                 count+=diff;
             }
