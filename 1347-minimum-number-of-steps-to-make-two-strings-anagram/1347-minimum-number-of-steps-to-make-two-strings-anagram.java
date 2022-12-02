@@ -10,7 +10,7 @@ class Solution {
         }
         int count=0;
         for(int i=0;i<26;i++){
-            int diff=freq1[i]-freq2[i];
+            int diff=freq1[i]-freq2[i];// if diff less than or equall to zero than i don't care ;if greater than i have to change in t because that char not present in t which present in s; 
             if(diff>0){
                 count+=diff;
             }
