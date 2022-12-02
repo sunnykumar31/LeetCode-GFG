@@ -3,15 +3,21 @@ class Solution {
         int count=0;
         int cap=capacity;
         for(int i=0;i<plants.length;i++){
-            if(plants[i]<=cap){
-                count++;
-                cap-=plants[i];
-            }
-            else{
-                count=count+i+i;
+            // if(plants[i]<=cap){
+            //     count++;
+            //     cap-=plants[i];
+            // }
+            // else{
+            //     count=count+i+i; 
+            //     cap=capacity;
+            //     i--;
+            // }
+            if(plants[i]>cap){
+                count=count+2*i;
                 cap=capacity;
-                i--;
             }
+            count++;
+            cap-=plants[i];
         }
         return count;
     }
