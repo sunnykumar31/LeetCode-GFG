@@ -3,34 +3,36 @@ class Solution {
         return Area(heights);
     }
     public static int Area(int ar[]){
-        Stack<Integer> st=new Stack<>();
+        Stack<Integer> sck=new Stack<>();
         int ans=0;
         for(int i=0;i<ar.length;i++){
-            while(!st.isEmpty() && ar[i]<ar[st.peek()]){
-                int r=i;
-                int h=ar[st.pop()];
-                if(!st.isEmpty()){
-                    int l=st.peek();
-                    ans=Math.max(ans,h*(r-l-1));
+            //if right minimum found then start findng area
+            while(!sck.isEmpty() && ar[i]<ar[sck.peek()]){
+                // finding the area 
+                int right=i;
+                int height=ar[sck.pop()];
+                if(!sck.isEmpty()){
+                    int left=sck.peek(); //left mimimum index;
+                    ans=Math.max(ans,height*(right-left-1)); // r-l-1 is range for finding area
                 }
                 else{
-                    ans=Math.max(ans,h*(r));
+                    ans=Math.max(ans,height*right);// no futher left mimimum thats why stack is empty;
                 }
             }
-            st.push(i);
+            sck.push(i);
         }
-        int r=ar.length;
-        while(!st.isEmpty()){
-                int h=ar[st.pop()];
-                if(!st.isEmpty()){
-                    int l=st.peek();
-                    ans=Math.max(ans,h*(r-l-1));
-                }
-                else{
-                    ans=Math.max(ans,h*(r));
-                }
+        // if element is left in stack
+        int right=ar.length;
+        while(!sck.isEmpty()){
+            int height=ar[sck.pop()];
+            if(!sck.isEmpty()){
+                int left=sck.peek(); //left mimimum index;
+                ans=Math.max(ans,height*(right-left-1)); // r-l-1 is range for finding area
             }
+            else{
+                ans=Math.max(ans,height*right);// no futher left mimimum thats why stack is empty;
+            }
+        }
         return ans;
-        
     }
 }
