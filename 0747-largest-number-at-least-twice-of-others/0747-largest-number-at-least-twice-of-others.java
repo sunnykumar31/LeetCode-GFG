@@ -7,7 +7,7 @@ class Solution {
             }
         }
         for(int i=0;i<nums.length;i++){
-            if((nums[i]!=nums[index])&&(2*nums[i]>nums[index])){
+            if((nums[i]!=nums[index])&&(2*nums[i]>nums[index])){//if  2nd largest element is greater than max then return -1; 1st statement not be equall to max if this statement not check then it will always return -1 . 2nd statement if it true than it doesnot qualify the requirement of question,max value always greater or equal to any of element in array.
                 return -1;
             }
         }
