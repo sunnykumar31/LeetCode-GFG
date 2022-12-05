@@ -10,20 +10,20 @@
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
-        ListNode temp1=head;
-        ListNode temp2=head;
-        ListNode temp3=head;
-        if(temp1.next==null){
+        ListNode temp1=head; // for finding middle node
+        ListNode temp2=head; //for helping to finding middle node it store alternate address 
+        ListNode temp3=head;// for finding just previous node of middle node
+        if(temp1.next==null){ //if only one node then it is middle node
             return null;
         }
         else{
-            while(temp2!=null && temp2.next!=null){
+            while(temp2!=null && temp2.next!=null){ // finding middle node
                 temp1=temp1.next;
                 temp2=temp2.next.next;
             }
             
         }
-        while(temp3.next!=temp1){
+        while(temp3.next!=temp1){ //finding previous node of middle node ,previous node have address of middle node  and middle node have address of past node of middle so we have to replace past node address to previous node address than middle element will deleted.
             temp3=temp3.next;
         }
         temp3.next=temp1.next;
