@@ -18,15 +18,17 @@ class Solution {
         }
         else{
             while(temp2!=null && temp2.next!=null){ // finding middle node
-                temp1=temp1.next;
+                temp3=temp1; //middle prev
+                temp1=temp1.next; //middle 
                 temp2=temp2.next.next;
             }
             
         }
-        while(temp3.next!=temp1){ //finding previous node of middle node ,previous node have address of middle node  and middle node have address of past node of middle so we have to replace past node address to previous node address than middle element will deleted.
-            temp3=temp3.next;
-        }
         temp3.next=temp1.next;
+        // while(temp3.next!=temp1){ //finding previous node of middle node ,previous node have address of middle node  and middle node have address of past node of middle so we have to replace past node address to previous node address than middle element will deleted.
+        //     temp3=temp3.next;
+        // }
+        // temp3.next=temp1.next;
         return head;
         
     }
