@@ -4,19 +4,17 @@ class Solution {
         int lq=queries.length;
         int ans[]=new int[lq];
         Arrays.sort(nums);
-        int comSum[]=new int[ln];
-        comSum[0]=nums[0];
         for(int i=1;i<ln;i++){
-            comSum[i]=comSum[i-1]+nums[i];
+            nums[i]+=nums[i-1];
         }
         for(int i=0;i<lq;i++){
             for(int j=0;j<ln;j++){
-                if(queries[i]<comSum[j]){
+                if(queries[i]<nums[j]){
                     ans[i]=j;
                     break;
                 }
             }
-            if(queries[i]>=comSum[ln-1]){
+            if(queries[i]>=nums[ln-1]){
                 ans[i]=ln;
             }
         }
