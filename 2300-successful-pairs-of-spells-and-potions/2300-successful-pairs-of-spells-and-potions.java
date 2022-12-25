@@ -9,12 +9,15 @@ class Solution {
                 ans[i]=0;
                 continue;
             }
+            //by simple searching gives TLE
             // for(int j=0;j<lp;j++){
             //     if(success<=(long)spells[i]*potions[j]){
             //         ans[i]=lp-j;
             //         break;
             //     }
             // }
+            
+            //by binary search
             int j=0;
             int k=lp-1;
             while(j<=k){
@@ -22,7 +25,7 @@ class Solution {
                 if(success>(long)spells[i]*potions[mid]){
                     j=mid+1;
                 }
-                else if(success<=(long)spells[i]*potions[mid]){
+                else{
                     k=mid-1;
                 }
             }
