@@ -39,7 +39,7 @@ class Solution {
                 return false;
             }
             reach=Math.max(reach,i+nums[i]);
-            if(reach>=nums.length-1) return true;
+            // if(reach>=nums.length-1) return true;
         }
         return true;
     }
