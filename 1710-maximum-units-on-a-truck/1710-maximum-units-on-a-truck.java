@@ -13,8 +13,7 @@ class Solution {
                     max=box[j][1];
                     index=j;
                 }
-            }
-            // System.out.println(box[index][1]);
+            }//maximum nikale unssko use ans nikale fir maximum wale index ko miminum kre taki baad m repeat na ho fir jb truckSize ki requirement pura to return kro ans;
             if(truckSize>=box[index][0]){
                 ans=ans+box[index][0]*box[index][1];
                 truckSize-=box[index][0];
