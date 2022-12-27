@@ -1,6 +1,6 @@
 class Solution {
     public int clumsy(int n) {
-        //Whithout stack
+        //Whithout stack Brute force
         if(n==1) return n;
         if(n==2) return n*(n-1);
         if(n==3) return n*(n-1)/(n-2);
