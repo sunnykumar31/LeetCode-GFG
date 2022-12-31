@@ -8,6 +8,7 @@ class Solution {
         int first=nums[0];
         int last=nums[l-1];
         int i=1;
+        //doing for dublicate minmum and  for dublicate maximum
         while(i<l){
             if(first!=nums[i]){
                 break;
