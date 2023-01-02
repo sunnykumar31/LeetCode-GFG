@@ -1,8 +1,9 @@
 class Solution {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
+        //jada optimize approch nhi hai bt approch hai
         int m=mat.length;
         int n=mat[0].length;
-        if(m*n!=r*c){
+        if(m*n!=r*c || (m==r && n==c)){
             return mat;
         }
         int ar[]=new int[m*n];
@@ -22,5 +23,27 @@ class Solution {
             }
         }
         return reshape;
+        
+        // 2nd approch after submission and taken from submission
+        // int row = mat.length;
+        // int col = mat[0].length;
+        // if(row*col!=r*c)
+        // {
+        //     return mat;
+        // }
+        // if(row==r && col==c)
+        // {
+        //     return mat;
+        // }
+        // int n = 0;
+        // int m = 0;
+        // int new_mat[][] = new int[r][c];
+        // while(n<r*c && m<row*col)
+        // {
+        //     new_mat[n/c][n%c] = mat[m/col][m%col];
+        //     n++;
+        //     m++;
+        // }
+        // return new_mat;
     }
 }
