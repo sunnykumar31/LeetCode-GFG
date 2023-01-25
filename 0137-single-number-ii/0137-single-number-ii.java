@@ -1,15 +1,29 @@
 class Solution {
     public int singleNumber(int[] nums) {
         // #HashMap Method
-        HashMap<Integer,Integer> hp=new HashMap<>();
-        for(int i=0;i<nums.length;i++){
-            if(!hp.containsKey(nums[i])) hp.put(nums[i],1);
-            else hp.put(nums[i],hp.get(nums[i])+1);
+        // HashMap<Integer,Integer> hp=new HashMap<>();
+        // for(int i=0;i<nums.length;i++){
+        //     if(!hp.containsKey(nums[i])) hp.put(nums[i],1);
+        //     else hp.put(nums[i],hp.get(nums[i])+1);
+        // }
+        // for(int i=0;i<nums.length;i++){
+        //     if(hp.get(nums[i])==1) return nums[i]; 
+        // }
+        // return 0;
+        
+        
+        // ##Sorting
+        
+        Arrays.sort(nums);
+        if(nums.length==1){
+            return nums[0];
         }
-        for(int i=0;i<nums.length;i++){
-            if(hp.get(nums[i])==1) return nums[i]; 
+        for(int i=1;i<nums.length;i+=3){
+            if(nums[i]!=nums[i-1]){
+                return nums[i-1];
+            }
         }
-        return 0;
+        return nums[nums.length-1];
         // int bit[]=new int[32];
         // for(int i=0;i<nums.length;i++){
         //     int temp=nums[i];
