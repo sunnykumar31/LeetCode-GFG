@@ -1,6 +1,6 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        // #HashMap Method
+        // #HashMap Method TimeComplexcity(nLogn +n) space(n)
         // HashMap<Integer,Integer> hp=new HashMap<>();
         // for(int i=0;i<nums.length;i++){
         //     if(!hp.containsKey(nums[i])) hp.put(nums[i],1);
@@ -12,18 +12,20 @@ class Solution {
         // return 0;
         
         
-        // ##Sorting
+        // ##Sorting TimeComplexcity(nLogn +n)
+        // Arrays.sort(nums);
+        // if(nums.length==1){
+        //     return nums[0];
+        // }
+        // for(int i=1;i<nums.length;i+=3){
+        //     if(nums[i]!=nums[i-1]){
+        //         return nums[i-1];
+        //     }
+        // }
+        // return nums[nums.length-1];
         
-        Arrays.sort(nums);
-        if(nums.length==1){
-            return nums[0];
-        }
-        for(int i=1;i<nums.length;i+=3){
-            if(nums[i]!=nums[i-1]){
-                return nums[i-1];
-            }
-        }
-        return nums[nums.length-1];
+        // ###  countintg bit method TimeComplexcity(32*Logn)
+        
         // int bit[]=new int[32];
         // for(int i=0;i<nums.length;i++){
         //     int temp=nums[i];
@@ -45,5 +47,15 @@ class Solution {
         // }
         // return ans;
         
+        // #### Bit manipulation TimeComplexcity(O(n))
+        int ones=0;
+        int twos=0;
+        for(int i=0;i<nums.length;i++){
+            ones=ones^nums[i];
+            ones=ones&(~twos);
+            twos=twos^nums[i];
+            twos=twos&(~ones);
+        }
+        return ones;
     }
 }
