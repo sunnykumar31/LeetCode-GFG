@@ -21,12 +21,12 @@ class Solution {
         if(root.val==val){
             return root;
         }
-        if(root.val<val){
-            root=searchBST(root.right,val);
+        else if(root.val<val){
+            return searchBST(root.right,val);
         }
         else{
-            root=searchBST(root.left,val);
+            return searchBST(root.left,val);
         }
-        return root;
+        // return root;
     }
 }
