@@ -1,31 +1,38 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> list=new ArrayList<>();
-        int l1=s.length();
-        int l2=p.length();
-        char[] ch1=p.toCharArray();
-        Arrays.sort(ch1);
-        int i=0;
-        while(i+l2<=l1){
-            if(permutaion(s.substring(i,i+l2),ch1)){
-                list.add(i);
-            }
-            i++;
+        int s_len=s.length();
+        int p_len=p.length();
+        if(s_len<p_len) return list;
+        int f_s[]=new int[26];
+        int f_p[]=new int[26];
+        int left=0;
+        int right=0;
+        while(right<p_len){
+            f_s[s.charAt(right)-'a']++;
+            f_p[p.charAt(right)-'a']++;
+            right++;
+        }
+        if(check(f_s,f_p)){
+            list.add(left);
+        }
+        while(right<s_len){
+            f_s[s.charAt(left)-'a']--;
+            f_s[s.charAt(right)-'a']++;
+            right++;
+            left++;
+            if(check(f_s,f_p)){
+                list.add(left);
+            } 
         }
         return list;
     }
-    public static boolean permutaion(String s2,char ch1[]){
-        // System.out.println(s1+" "+s2);
-        char[] ch2=s2.toCharArray();
-        Arrays.sort(ch2);
-        for(int i=0;i<ch1.length;i++){
-            if(ch1[i]!=ch2[i]){
+    public static boolean check(int f_s[],int f_p[]){
+        for(int i=0;i<26;i++){
+            if(f_s[i]!=f_p[i]){
                 return false;
             }
-            
         }
         return true;
-        
-    
     }
 }
