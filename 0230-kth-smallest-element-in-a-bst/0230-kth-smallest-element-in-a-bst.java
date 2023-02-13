@@ -14,16 +14,23 @@
  * }
  */
 class Solution {
+   public static int ans=0;
+    public static int count=0;
     public int kthSmallest(TreeNode root, int k) {
-        //bt it take O(n) space complexity
-        List<Integer> list=new ArrayList<>();
-        Inorder(root,list);
-        return list.get(k-1);
+        // it is without extra space
+        ans=0;
+        count=0;
+        Inorder(root,k);
+        return ans;
     }
-    public static void Inorder(TreeNode root,List<Integer> list){
+    public static void Inorder(TreeNode root,int k){
         if(root==null) return;
-        Inorder(root.left,list);
-        list.add(root.val);
-        Inorder(root.right,list);
+        Inorder(root.left,k);
+        count++;
+        if(count==k){
+            ans=ans+root.val;
+            return;
+        }
+        Inorder(root.right,k);
     }
 }
