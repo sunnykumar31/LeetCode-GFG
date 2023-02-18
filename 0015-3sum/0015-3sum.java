@@ -4,30 +4,29 @@ class Solution {
         Arrays.sort(nums);
         int ls=nums.length;
         for(int first=0;first<nums.length-2;first++){
-            for(int scnd=first+1;scnd<nums.length-1;scnd++){
-                int remain=0-(nums[first]+nums[scnd]);
-                if(remain<=nums[ls-1]){
                     List<Integer> list=new ArrayList<>();
-                    int i=scnd+1;
+                    int i=first+1;
                     int j=ls-1;
-                    while(i<=j){
-                        int mid=(i+j)/2;
-                        if(nums[mid]==remain){
+                    while(i<j){
+                        int target=nums[i]+nums[first]+nums[j];
+                        if(target==0){
                             list.add(nums[first]);
-                            list.add(nums[scnd]);
-                            list.add(nums[mid]);
+                            list.add(nums[i++]);
+                            list.add(nums[j--]);
                             res.add(list);
-                            break;
+                            list=new ArrayList<>();
+                            // break;
                         }
-                        else if(remain<=nums[mid]){
-                            j=mid-1;
+                        else if(target<0){
+                            i++;
                         }
-                        else{
-                            i=mid+1;
+                        else if(target>0){
+                            j--;
                         }
                     }
-                }
-            }
+                    // i++;
+            // j--;
+            
         }
         List<List<Integer>> ans=new ArrayList<>(res);
         return ans;
