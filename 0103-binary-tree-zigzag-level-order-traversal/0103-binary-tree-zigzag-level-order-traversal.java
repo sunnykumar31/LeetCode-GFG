@@ -20,38 +20,31 @@ class Solution {
         return res;
     }
     public static void DFS(TreeNode root,List<List<Integer>> res){
-        
-        Queue<TreeNode> q=new LinkedList<>();
-        Queue<TreeNode> qh=new LinkedList<>();
-        List<Integer> ans=new ArrayList<>();
-        q.add(root);
-        int f=0;
         if(root==null){
             return;
         }
+        Queue<TreeNode> q=new LinkedList<>();
+        List<Integer> list=new ArrayList<>();
+        q.add(root);
+        int s=q.size();
+        int f=0;
         while(!q.isEmpty()){
-            TreeNode temp=q.remove();
-            ans.add(temp.val);
-            if(temp.left!=null){
-                qh.add(temp.left);
+            s=q.size();
+            for(int i=0;i<s;i++){
+                TreeNode temp=q.remove();
+                list.add(temp.val);
+                if(temp.left!=null) q.add(temp.left);
+                if(temp.right!=null) q.add(temp.right);
             }
-            if(temp.right!=null){
-                qh.add(temp.right);
+            if(f==1) {
+                Collections.reverse(list);
+                f=0;
             }
-            if(q.isEmpty()){
-                if(f==0){
-                    res.add(ans);
-                    f=1;
-                }
-                else{
-                    Collections.reverse(ans);
-                    res.add(ans);
-                    f=0;
-                }
-                q=qh;
-                qh=new LinkedList<>();
-                ans=new ArrayList<>();
+            else{
+                f=1;
             }
+            res.add(list);
+            list=new ArrayList<>();
         }
         return;
     }
