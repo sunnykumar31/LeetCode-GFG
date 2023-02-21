@@ -11,27 +11,27 @@ class Solution {
         // }
         // return nums[nums.length-1];
         
-        // int i=0;
-        // int j=nums.length-1;
-        // int mid=0;
-        // while(i<j){
-        //     mid=i+(j-i)/2;
-        //     if(nums[mid]==nums[mid+1]){
-        //         mid=mid-1;
-        //     }
-        //     if((mid-i+1)%2==0){
-        //         i=mid+1;
-        //     }
-        //     else{
-        //         j=mid;
-        //     }
-        // }
-        // return nums[i];
-        
-        int ans=0;
-        for(int i=0;i<nums.length;i++){
-            ans=ans^nums[i];
+        int start=0;
+        int last=nums.length-1;
+        int mid=start+(last-start)/2;
+        while(start<last){
+            mid=start+(last-start)/2;
+            if(nums[mid]==nums[mid+1]){
+                mid=mid-1;
+            }
+            if((mid+1-start)%2==0){
+                start=mid+1;
+            }
+            else{
+                last=mid;
+            }
         }
-        return ans;
+        return nums[start];
+        
+        // int ans=0;
+        // for(int i=0;i<nums.length;i++){
+        //     ans=ans^nums[i];
+        // }
+        // return ans;
     }
 }
