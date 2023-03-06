@@ -6,20 +6,12 @@ class Solution {
         }
         int i=0;
         int ans=0;
-        while(i<f.length){
+        while(i<f.length-1){
             if(f[i]>1){
-                f[i]=f[i]-1;
-                for(int j=i+1;j<f.length;j++){
-                    if(f[j]==0){
-                        f[j]=1;
-                        ans=ans+j-i;
-                        break;
-                    }
-                }
+                ans+=f[i]-1;
+                f[i+1]=f[i+1]+f[i]-1;
             }
-            if(f[i]<2){
-                i++;
-            }
+            i++;
         }
         return ans;
     }
