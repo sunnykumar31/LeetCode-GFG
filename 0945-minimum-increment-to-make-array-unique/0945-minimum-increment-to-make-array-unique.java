@@ -17,7 +17,7 @@ class Solution {
                     }
                 }
             }
-            else{
+            if(f[i]<2){
                 i++;
             }
         }
