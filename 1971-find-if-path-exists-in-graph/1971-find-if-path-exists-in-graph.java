@@ -10,6 +10,9 @@ class Solution {
             map.get(v1).add(v2);
             map.get(v2).add(v1);
         }
+        return BFS(map,src,dst);
+    }
+    public static boolean BFS(HashMap<Integer,List<Integer>> map, int src, int dst){
         HashSet<Integer> visited=new HashSet<>();
         Queue<Integer> q=new LinkedList<>();
         q.add(src);
@@ -27,7 +30,5 @@ class Solution {
             }
         }
         return false;
-    
     }
-    // public static boolean BFS()
 }
