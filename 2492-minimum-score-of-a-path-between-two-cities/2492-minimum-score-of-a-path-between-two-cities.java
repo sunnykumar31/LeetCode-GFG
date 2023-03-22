@@ -5,11 +5,8 @@ class Solution {
             map.put(i,new HashMap<>());
         }
         for(int i=0;i<roads.length;i++){
-            int v1=roads[i][0];
-            int v2=roads[i][1];
-            int cost=roads[i][2];
-            map.get(v1).put(v2,cost);
-            map.get(v2).put(v1,cost);
+            map.get(roads[i][0]).put(roads[i][1],roads[i][2]);
+            map.get(roads[i][1]).put(roads[i][0],roads[i][2]);
         }
         return minimum(map,n);
     }
