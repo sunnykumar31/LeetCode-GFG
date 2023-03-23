@@ -20,13 +20,10 @@ class Solution {
             }
         }
         int idx=0;
-        
-        ArrayList<Integer> list= new ArrayList<>();
+        int ans[]=new int[map.size()];
         while(!q.isEmpty()){
             int rv=q.remove();
-            // count++;
-            // ans[idx++]=rv;
-            list.add(rv);
+            ans[idx++]=rv;
             for(int nbrs:map.get(rv)){
                 in[nbrs]--;
                 if(in[nbrs]==0){
@@ -34,11 +31,7 @@ class Solution {
                 }
             }
         }
-        int ans[]=new int[list.size()];
-        if(map.size()==list.size()){
-            for(int i=0;i<list.size();i++){
-                ans[i]=list.get(i);
-            }
+        if(map.size()==idx){
             return ans;
         }
         else{
