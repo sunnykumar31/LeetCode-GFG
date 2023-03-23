@@ -38,8 +38,8 @@ class Solution {
     
     public int[] inDegree(int n,HashMap<Integer,ArrayList<Integer>> map){
         int in[]=new int[n];
-        for(int i=0;i<n;i++){
-            for(int nbrs:map.get(i)){
+        for(int key:map.keySet()){
+            for(int nbrs:map.get(key)){
                 in[nbrs]++;
             }
         }
