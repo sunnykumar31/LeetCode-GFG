@@ -14,18 +14,20 @@
  * }
  */
 class Solution {
+    // int sum=0;
     public int sumNumbers(TreeNode root) {
-        return SofLeaf(root,0);
+        return find(root,0);
     }
-    public static int SofLeaf(TreeNode root,int ans){
+    public int find(TreeNode root,int pathSum){
         if(root==null){
             return 0;
         }
         if(root.left==null && root.right==null){
-            return ans*10+root.val;
+            return root.val+pathSum*10;
         }
-        int left=SofLeaf(root.left,ans*10+root.val);
-        int right=SofLeaf(root.right,ans*10+root.val);
-        return left+right;
+        int l=find(root.left,pathSum*10+root.val);
+        int r=find(root.right,pathSum*10+root.val);
+        return l+r;
     }
+    
 }
