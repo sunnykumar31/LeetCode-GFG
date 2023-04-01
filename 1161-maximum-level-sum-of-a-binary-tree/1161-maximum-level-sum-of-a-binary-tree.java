@@ -13,10 +13,6 @@
  *     }
  * }
  */
-class pair{
-    int sum;
-    int level;
-}
 class Solution {
     public int maxLevelSum(TreeNode root) {
         int sum=0;
