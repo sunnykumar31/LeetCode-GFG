@@ -19,19 +19,16 @@ class pair{
 }
 class Solution {
     public int maxLevelSum(TreeNode root) {
-        int s=0;
-        PriorityQueue<pair> pq=new PriorityQueue<>(new Comparator<pair>(){
-            public int compare(pair o2,pair o1){
-                return o1.sum-o2.sum;
-            }
-        });
+        int sum=0;
+        int max=Integer.MIN_VALUE;
+        int level=0;
         Queue<TreeNode> q=new LinkedList<>();
         Queue<TreeNode> qdub=new LinkedList<>();
         q.add(root);
         int l=0;
         while(!q.isEmpty()){
             TreeNode temp=q.remove();
-            s+=temp.val;
+            sum+=temp.val;
             if(temp.left!=null){
                 qdub.add(temp.left);
             }
@@ -40,15 +37,15 @@ class Solution {
             }
             if(q.isEmpty()){
                 l++;
-                pair sl=new pair();
-                sl.sum=s;
-                sl.level=l;
-                pq.add(sl);
-                s=0;
+                if(sum>max){
+                    max=sum;
+                    level=l;
+                }
+                sum=0;
                 q=qdub;
                 qdub=new LinkedList<>();
             }
         }
-        return pq.peek().level;
+        return level;
     }
 }
