@@ -23,28 +23,26 @@ class Solution {
         int max=Integer.MIN_VALUE;
         int level=0;
         Queue<TreeNode> q=new LinkedList<>();
-        Queue<TreeNode> qdub=new LinkedList<>();
         q.add(root);
         int l=0;
         while(!q.isEmpty()){
-            TreeNode temp=q.remove();
-            sum+=temp.val;
-            if(temp.left!=null){
-                qdub.add(temp.left);
-            }
-            if(temp.right!=null){
-                qdub.add(temp.right);
-            }
-            if(q.isEmpty()){
-                l++;
-                if(sum>max){
-                    max=sum;
-                    level=l;
+            int size=q.size();
+            for(int i=0;i<size;i++){
+                TreeNode temp=q.remove();
+                sum+=temp.val;
+                if(temp.left!=null){
+                    q.add(temp.left);
                 }
-                sum=0;
-                q=qdub;
-                qdub=new LinkedList<>();
+                if(temp.right!=null){
+                    q.add(temp.right);
+                }
             }
+            l++;
+            if(sum>max){
+                max=sum;
+                level=l;
+            }
+            sum=0;
         }
         return level;
     }
