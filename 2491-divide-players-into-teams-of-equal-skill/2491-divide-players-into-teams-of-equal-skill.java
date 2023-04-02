@@ -23,11 +23,8 @@ class Solution {
             else if(f[i]!=f[j] || i+j!=k) return -1;
             else{
                 if(i==j){
-                    if(f[i]%2!=0) return -1;
-                    else{
-                        int half=f[i]/2;
-                        ans=ans+(long)i*j*half;
-                    }  
+                    int half=f[i]/2;
+                    ans=ans+(long)i*j*half;
                 }
                 else ans=ans+f[i]*i*j;
                 i++;
