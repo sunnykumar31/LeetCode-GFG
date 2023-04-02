@@ -1,23 +1,41 @@
 class Solution {
     public long dividePlayers(int[] skill) {
-        Arrays.sort(skill);
-        int n=skill.length;
-        int i=0;
-        int j=n-1;
-        int sum=skill[i]+skill[j];
-        long ans=skill[i]*skill[j];
-        i++;
-        j--;
-        while(i<j){
-            if(skill[i]+skill[j]==sum){
-                ans=ans+skill[i]*skill[j];
+        //2nd approch without sorting
+        int f[]=new int[1001];
+        int min=1001;
+        int max=0;
+        for(int i=0;i<skill.length;i++){
+            f[skill[i]]++;
+            if(skill[i]<min){
+                min=skill[i];
+            }
+            if(skill[i]>max){
+                max=skill[i];
+            }
+        }
+        int k=min+max;
+        long ans=0;
+        int i=1;
+        int j=1000;
+        while(i<=j){
+            if(f[i]==0) i++;
+            else if(f[j]==0) j--;
+            else if(f[i]!=f[j] || i+j!=k) return -1;
+            else{
+                if(i==j){
+                    if(f[i]%2!=0) return -1;
+                    else{
+                        int half=f[i]/2;
+                        ans=ans+(long)i*j*half;
+                    }  
+                }
+                else ans=ans+f[i]*i*j;
                 i++;
                 j--;
             }
-            else{
-                return -1;
-            }
+            
         }
         return ans;
+        
     }
 }
