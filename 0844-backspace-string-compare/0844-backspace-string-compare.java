@@ -1,7 +1,7 @@
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        String s1=remove(s).trim();
-        String t1=remove(t).trim();
+        String s1=remove(s);
+        String t1=remove(t);
         // System.out.println(s1+" "+t1);
         return s1.equals(t1);
     }
@@ -15,12 +15,15 @@ class Solution {
             }
             j++;
         }
-        int start=0;
-        for(int i=0;i<j;i++){
-            if(str[i]=='#') str[i]=' ';
+        
+        // why use this you can understand by this example "y#fo##f"
+                                                                // "y#f#o##f"
+        int i=0;
+        for(;i<j;i++){
+            if(str[i]=='#');
             else break;
         }
-        
-        return new String(str,start,j);
+        System.out.print(j);
+        return new String(str,i,j-i);
     }
 }
